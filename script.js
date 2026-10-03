@@ -4,9 +4,9 @@ const SKILLS = [
   ['SQL', 70], ['NETWORKING', 65], ['GODOT', 60], ['SAP', 50]
 ];
 const BOOT_STEPS = ['Loading Interface...', 'Scanning Projects...', 'Building Skill Database...', 'Loading User Profile...', 'Preparing Dashboard...'];
-const TYPED_WORDS = ['video games', 'websites', 'applications'];
+const TYPED_WORDS = ['video game', 'website', 'application'];
 const JOURNEY = [
-  { year: '2022', cat: 'MILESTONE',   title: 'First Programming Experience', sub: 'First error', desc: 'I only knew basic HTML, CSS, and basic JavaScript at the time.', tags: ['HTML', 'CSS', 'JAVASCRIPT'], imgs: ['images\\Dishonored2_CorvoHeader_875x493.jpg'] },
+  { year: '2022', cat: 'MILESTONE',   title: 'First Programming Experience', sub: 'First error', desc: 'I only knew basic HTML, CSS, and basic JavaScript at the time.', tags: ['HTML', 'CSS', 'JAVASCRIPT'], imgs: ['images/Dishonored2_CorvoHeader_875x493.jpg'] },
   { year: '[YEAR_2]', cat: 'COMPETITION', title: '[EVENT_2_TITLE]', sub: '[EVENT_2_SUBTITLE]', desc: '[EVENT_2_DESCRIPTION]', tags: ['[TAG_1]', '[TAG_2]'], imgs: [''] },
   { year: '[YEAR_3]', cat: 'ACADEMICS',   title: '[EVENT_3_TITLE]', sub: '[EVENT_3_SUBTITLE]', desc: '[EVENT_3_DESCRIPTION]', tags: ['[TAG_1]', '[TAG_2]'], imgs: ['', ''] },
   { year: '[YEAR_4]', cat: 'PROJECT',     title: '[EVENT_4_TITLE]', sub: '[EVENT_4_SUBTITLE]', desc: '[EVENT_4_DESCRIPTION]', tags: ['[TAG_1]', '[TAG_2]'], imgs: ['', '', ''], current: true }
@@ -67,35 +67,43 @@ const Reveal = {
 
 /* ===== SCANNER: grain / grid / glass, driven by CSS vars ===== */
 const Scanner = {
-  tx: innerWidth / 2, ty: innerHeight / 2, x: innerWidth / 2, y: innerHeight / 2, cards: [],
-  TAU: 170,   // ms of easing for the reveal (higher = slower, softer)
+  x: innerWidth / 2, y: innerHeight / 2, cards: [], rects: null,
   init() {
-    const root = document.documentElement.style;
+    if (!matchMedia('(hover:hover) and (pointer:fine)').matches) return;   // mobile: no scanner, grain only
+    this.cards = $$('.glass');
+    const grain = $('.fx-grain--scan'), grid = $('.fx-grid--scan'), aura = $('.fx-aura');
+    const SR = 105, SG = 125, SA = 260;                     // half-sizes, must match the CSS widths (210 / 250 / 520px)
     let tx = this.x, ty = this.y, last = performance.now();
+    const place = () => {
+      grain.style.transform = `translate3d(${this.x - SR}px,${this.y - SR}px,0)`;
+      grid.style.transform = `translate3d(${this.x - SG}px,${this.y - SG}px,0)`;
+      grid.style.backgroundPosition = `${SG - this.x}px ${SG - this.y}px`;
+      aura.style.transform = `translate3d(${this.x - SA}px,${this.y - SA}px,0)`;
+    };
+    place();                                                // starts centred, like before
     addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+    const dirty = () => { this.rects = null; };
+    addEventListener('scroll', dirty, { passive: true }); addEventListener('resize', dirty);
     const loop = now => {
       const dt = Math.min(now - last, 50); last = now;
-      const k = 1 - Math.exp(-dt / 150);               // scanner glide: raise 110 for a slower reveal
+      const k = 1 - Math.exp(-dt / 150);
       const ox = this.x, oy = this.y;
       this.x += (tx - this.x) * k; this.y += (ty - this.y) * k;
-      if (Math.abs(this.x - ox) + Math.abs(this.y - oy) > .02) {
-        root.setProperty('--mx', this.x.toFixed(1) + 'px'); root.setProperty('--my', this.y.toFixed(1) + 'px');
-        this.glass();
-      }
+      if (Math.abs(this.x - ox) + Math.abs(this.y - oy) > .02) { place(); this.glass(); }
       requestAnimationFrame(loop);
     };
     requestAnimationFrame(loop);
   },
-  // Proximity: the closer a panel is to the scanner, the brighter its reflection
   glass() {
-    for (const c of this.cards) {
-      const r = c.getBoundingClientRect();
-      if (r.bottom < 0 || r.top > innerHeight) continue;
+    if (!this.rects) this.rects = this.cards.map(c => c.getBoundingClientRect());
+    this.cards.forEach((c, i) => {
+      const r = this.rects[i];
+      if (r.bottom < 0 || r.top > innerHeight) return;
       const dx = Math.max(r.left - this.x, 0, this.x - r.right), dy = Math.max(r.top - this.y, 0, this.y - r.bottom);
       const prox = Math.max(0, 1 - Math.hypot(dx, dy) / 170);
       c.classList.toggle('near', prox > 0);
       if (prox > 0) { c.style.setProperty('--cx', this.x - r.left + 'px'); c.style.setProperty('--cy', this.y - r.top + 'px'); c.style.setProperty('--prox', prox.toFixed(2)); }
-    }
+    });
   }
 };
 
