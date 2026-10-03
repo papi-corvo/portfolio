@@ -4,9 +4,9 @@ const SKILLS = [
   ['SQL', 70], ['NETWORKING', 65], ['GODOT', 60], ['SAP', 50]
 ];
 const BOOT_STEPS = ['Loading Interface...', 'Scanning Projects...', 'Building Skill Database...', 'Loading User Profile...', 'Preparing Dashboard...'];
-const TYPED_WORDS = ['video game', 'website', 'application'];
+const TYPED_WORDS = ['video games', 'websites', 'applications'];
 const JOURNEY = [
-  { year: '2022', cat: 'MILESTONE',   title: 'First Programming Experience', sub: 'First error', desc: 'I only knew basic HTML, CSS, and basic JavaScript at the time.', tags: ['HTML', 'CSS', 'JAVASCRIPT'], imgs: ['images/Dishonored2_CorvoHeader_875x493.jpg'] },
+  { year: '2022', cat: 'MILESTONE',   title: 'First Programming Experience', sub: 'First error', desc: 'I only knew basic HTML, CSS, and basic JavaScript at the time.', tags: ['HTML', 'CSS', 'JAVASCRIPT'], imgs: ['images/placeholder_2021.jpg'] },
   { year: '[YEAR_2]', cat: 'COMPETITION', title: '[EVENT_2_TITLE]', sub: '[EVENT_2_SUBTITLE]', desc: '[EVENT_2_DESCRIPTION]', tags: ['[TAG_1]', '[TAG_2]'], imgs: [''] },
   { year: '[YEAR_3]', cat: 'ACADEMICS',   title: '[EVENT_3_TITLE]', sub: '[EVENT_3_SUBTITLE]', desc: '[EVENT_3_DESCRIPTION]', tags: ['[TAG_1]', '[TAG_2]'], imgs: ['', ''] },
   { year: '[YEAR_4]', cat: 'PROJECT',     title: '[EVENT_4_TITLE]', sub: '[EVENT_4_SUBTITLE]', desc: '[EVENT_4_DESCRIPTION]', tags: ['[TAG_1]', '[TAG_2]'], imgs: ['', '', ''], current: true }
