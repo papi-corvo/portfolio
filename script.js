@@ -1,12 +1,13 @@
 /* ===== CONFIG: edit freely ===== */
 const SKILLS = [
-  ['HTML', 90], ['CSS', 85], ['JAVASCRIPT', 75], ['C#', 70],
-  ['SQL', 70], ['NETWORKING', 65], ['GODOT', 60], ['SAP', 50]
+  ['HTML', 90], ['CSS', 85], ['JAVASCRIPT', 70], ['PYTHON', 50], ['JAVA', 75], ['C#', 70],
+  ['SQL', 70], ['NETWORKING', 65], ['GODOT', 95], ['SAP', 50]
 ];
 const BOOT_STEPS = ['Loading Interface...', 'Scanning Projects...', 'Building Skill Database...', 'Loading User Profile...', 'Preparing Dashboard...'];
 const TYPED_WORDS = ['video games', 'websites', 'applications'];
+const LAST_UPDATE = '2026-10-03';   // YYYY-MM-DD, change this every release
 const JOURNEY = [
-  { year: '2022', cat: 'MILESTONE',   title: 'First Programming Experience', sub: 'First error', desc: 'I only knew basic HTML, CSS, and basic JavaScript at the time.', tags: ['HTML', 'CSS', 'JAVASCRIPT'], imgs: ['images/placeholder_2021.jpg'] },
+  { year: '2022', cat: 'MILESTONE',   title: 'First Programming Experience', sub: 'First error', desc: 'I only knew basic HTML, CSS, and basic JavaScript at that time.', tags: ['HTML', 'CSS', 'JAVASCRIPT'], imgs: ['images/placeholder_2021.jpg'] },
   { year: '[YEAR_2]', cat: 'COMPETITION', title: '[EVENT_2_TITLE]', sub: '[EVENT_2_SUBTITLE]', desc: '[EVENT_2_DESCRIPTION]', tags: ['[TAG_1]', '[TAG_2]'], imgs: [''] },
   { year: '[YEAR_3]', cat: 'ACADEMICS',   title: '[EVENT_3_TITLE]', sub: '[EVENT_3_SUBTITLE]', desc: '[EVENT_3_DESCRIPTION]', tags: ['[TAG_1]', '[TAG_2]'], imgs: ['', ''] },
   { year: '[YEAR_4]', cat: 'PROJECT',     title: '[EVENT_4_TITLE]', sub: '[EVENT_4_SUBTITLE]', desc: '[EVENT_4_DESCRIPTION]', tags: ['[TAG_1]', '[TAG_2]'], imgs: ['', '', ''], current: true }
@@ -173,7 +174,15 @@ const Particles = {
 /* ===== SYSTEM DETAILS ===== */
 const System = {
   init() {
-    $('#lastUpdate').textContent = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
+    // last update: your release date, not the visitor's
+    const [y, m, d] = LAST_UPDATE.split('-').map(Number);
+    $('#lastUpdate').textContent = new Date(y, m - 1, d).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
+    // live clock, fixed to Philippine time
+    const clock = $('#clock');
+    if (!clock) return;
+    const fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Manila', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+    const tick = () => { clock.textContent = fmt.format(new Date()) + ' PHT'; };
+    tick(); setInterval(tick, 1000);
   }
 };
 
@@ -232,5 +241,20 @@ const Timeline = {
   }
 };
 
+/* ===== DEV NOTICE ===== */
+const Notice = {
+  init() {
+    const el = $('#notice');
+    if (!el) return;
+    const show = () => document.body.classList.contains('ready')
+      ? setTimeout(() => el.classList.add('show'), 4000)                // 4000 = seconds delay x 1000
+      : setTimeout(show, 100);
+    show();
+    const close = () => el.classList.remove('show');
+    $('#noticeClose').addEventListener('click', close);
+    addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  }
+};
+
 /* ===== START ===== */
-Skills.init(); Timeline.init(); System.init(); Scanner.init(); Cursor.init(); Particles.init(); Typer.init(); Boot.run();
+Skills.init(); Timeline.init(); System.init(); Scanner.init(); Cursor.init(); Particles.init(); Typer.init(); Notice.init(); Boot.run();

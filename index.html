@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vela — Portfolio System</title>
-<meta name="description" content="[SHORT_INTRO_PLACEHOLDER]">
+<meta name="description" content="Portfolio of Joshner Vela, an IT student building games, websites, and applications.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -46,8 +46,7 @@
 <header class="topbar">
   <a href="#hero" class="brand mono">VELA<span class="dot"></span></a>
   <nav aria-label="Primary">
-    <a href="#stack">Skills</a><a href="#projects">Projects</a><a href="#about">Profile</a><a href="#contact">Contact</a>
-    <a href="#projects">Projects</a><a href="#journey">Journey</a><a href="#about">Profile</a>
+    <a href="#stack">Skills</a><a href="#projects">Projects</a><a href="#journey">Journey</a><a href="#about">Profile</a><a href="#contact">Contact</a>
   </nav>
   <div class="icons">
     <span class="pill sys-chip"><b class="led"></b>STATUS: ONLINE</span>
@@ -60,7 +59,7 @@
 <main>
   <!-- HERO -->
   <section id="hero" class="hero">
-    <p class="reveal"><span class="pill"><b class="led"></b>PORTFOLIO SYSTEM</span> <span class="pill pill-sq">v1.0.0</span></p>
+    <p class="reveal"><span class="pill"><b class="led"></b>PORTFOLIO SYSTEM</span> <span class="pill pill-sq">v1.1.0</span></p>
     <h1 class="hero-name"><span class="line"><span>Joshner Vela</span></span></h1>
     <p class="hero-role reveal"><span class="pill pill-sq">IT STUDENT</span><br><em>DEVELOPER &amp; PROBLEM SOLVER</em></p>
     <p class="hero-intro reveal">I make <span class="typed" id="typed" aria-live="off"></span><span class="caret" aria-hidden="true"></span></p>
@@ -118,11 +117,11 @@
   <section id="about" class="section">
     <header class="sec-head reveal"><p class="label">TECHNICAL PROFILE</p><h2>Profile dashboard</h2></header>
     <div class="about-grid">
-      <article class="glass card reveal"><p class="label">EDUCATION</p><p>STI College Lucena<br> Bachelor of Science in Information Technology · 2028</p></article>
+      <article class="glass card reveal"><p class="label">EDUCATION</p><p>STI College Lucena<br> Bachelor of Science in Information Technology · [2028]</p></article>
       <article class="glass card reveal"><p class="label">INTERESTS</p><p>Game Development / Web Development / Mobile Apps</p></article>
       <article class="glass card reveal"><p class="label">TECHNICAL AREAS</p><p>Frontend Development / Backend Development / Database Management</p></article>
       <article class="glass card reveal"><p class="label">CAREER GOALS</p><p>Full-Stack Developer / Game Developer</p></article>
-      <article class="glass card reveal wide"><p class="label">CERTIFICATIONS</p><p>Oracle Certified Associate, Java SE 8 Programmer · Microsoft Certified: Azure Fundamentals · Google UX Design Professional Certificate</p></article>
+      <article class="glass card reveal wide"><p class="label">CERTIFICATIONS</p><p>[Oracle Certified Associate], [Java SE 8 Programmer] · [Microsoft Certified: Azure Fundamentals] · [Google UX Design Professional Certificate]</p></article>
     </div>
   </section>
 
@@ -131,9 +130,9 @@
     <header class="sec-head reveal"><p class="label">DEVELOPER CONSOLE</p><h2>Communications terminal</h2></header>
     <div class="glass card terminal reveal" data-tag="ACCESS">
       <p class="mono term-line"><span class="prompt">&gt;</span> open channel --email <a href="mailto:joshnervela@gmail.com" data-tag="OPEN">joshnervela@gmail.com</a></p>
-      <p class="mono term-line"><span class="prompt">&gt;</span> open channel --linkedin <a href="#" data-tag="OPEN">https://linkedin.com/in/joshnervela</a></p>
+      <p class="mono term-line"><span class="prompt">&gt;</span> open channel --linkedin <a href="#" data-tag="OPEN">[https://linkedin.com/in/joshnervela]</a></p>
       <p class="mono term-line"><span class="prompt">&gt;</span> open channel --github <a href="#" data-tag="OPEN">https://github.com/papi-corvo</a></p>
-      <p class="mono term-line"><span class="prompt">&gt;</span> locate <span>Lucena, Philippines</span> · <span>+639692778929</span><span class="caret"></span></p>
+      <p class="mono term-line"><span class="prompt">&gt;</span> locate <span>Lucena, Philippines</span> · <span>[+63999999999]</span><span class="caret"></span></p>
     </div>
   </section>
 </main>
@@ -143,9 +142,21 @@
   <span>DATABASE: CONNECTED</span>
   <span>PROJECTS: LOADED</span>
   <span>NETWORK: STABLE</span>
-  <span>LAST UPDATE: <time id="lastUpdate">10/03/2026</time></span>
-  <span>BUILD v1.0.0</span>
+  <span>DEV TIME: <time id="clock">--:--:--</time></span>
+  <span>LAST UPDATE: <time id="lastUpdate">[10/03/2026]</time></span>
+  <span>BUILD v1.1.0</span>
 </footer>
+
+<aside class="notice glass" id="notice" role="status" aria-live="polite">
+  <div class="notice-top"><span class="pill"><b class="led led-red"></b>NOTICE</span><span class="mono">STATUS: IN DEVELOPMENT</span></div>
+  <h3>Work in progress</h3>
+  <p>Welcome! This portfolio is still being built. Here is what you are looking at:</p>
+  <ul class="notice-list">
+    <li><b class="led"></b><span><em>ORIGINAL</em>Some of the content is real and written by me.</span></li>
+    <li><b class="led led-red"></b><span><em>PLACEHOLDER</em>The rest is temporary and will be replaced.</span></li>
+  </ul>
+  <div class="notice-foot"><span class="mono">BUILD v1.1.0</span><button class="notice-x" id="noticeClose" aria-label="Dismiss notice" data-tag="CLOSE">GOT IT</button></div>
+</aside>
 
 <script src="script.js"></script>
 </body>
