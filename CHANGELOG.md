@@ -2,6 +2,21 @@
 
 All notable changes to this portfolio are listed here, newest version first.
 
+## v0.2.0 — Navigation and contact update
+
+### Added
+- Mobile navigation menu: a compact glass card opened from a round button in the top bar on tablet and phone widths
+- Contact channels redesigned as clickable rows for email, LinkedIn and GitHub, with short handles and arrows
+- Copy button for the email address, with a "copied" confirmation
+- Location moved to a quiet status line under the contact rows
+
+### Changed
+- Development notice now appears 2 seconds after the page loads, instead of 4
+
+### Fixed
+- Top bar email, GitHub and LinkedIn icons now link to real destinations
+- Contact links open in a new tab and no longer show placeholder brackets
+
 ## v0.1.0 — Initial development release
 
 First version of the portfolio system. Some content is original and some is placeholder.

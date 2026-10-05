@@ -54,16 +54,32 @@
   </nav>
   <div class="icons">
     <span class="pill sys-chip"><b class="led"></b>STATUS: ONLINE</span>
-    <a class="icon-btn" href="mailto:[YOUR_EMAIL]" aria-label="Email" data-tag="OPEN"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
-    <a class="icon-btn" href="#" aria-label="GitHub" data-tag="ACCESS"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg></a>
+    <a class="icon-btn" href="mailto:joshnervela.tech@gmail.com" aria-label="Email" data-tag="OPEN"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+    <a class="icon-btn"href="https://github.com/papi-corvo" target="_blank" rel="noopener noreferrer" aria-label="GitHub" data-tag="ACCESS"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg></a>
     <a class="icon-btn red" href="#" aria-label="LinkedIn" data-tag="ACCESS"><svg viewBox="0 0 24 24"><path d="M6 10v8M6 6.5v.1M11 18v-8m0 3c0-2 1.5-3 3-3s3 1 3 3v5"/></svg></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel"><span></span><span></span></button>
   </div>
 </header>
+
+<!-- MOBILE MENU -->
+<div class="menu" id="menuPanel" aria-hidden="true">
+  <div class="menu-card">
+    <div class="menu-head"><span class="pill"><b class="led"></b>NAVIGATION</span><button class="menu-close" id="menuClose" aria-label="Close menu">&times;</button></div>
+    <ol class="menu-links">
+      <li style="--i:0"><a href="#stack">Skills<span class="mono">01</span></a></li>
+      <li style="--i:1"><a href="#projects">Projects<span class="mono">02</span></a></li>
+      <li style="--i:2"><a href="#journey">Journey<span class="mono">03</span></a></li>
+      <li style="--i:3"><a href="#about">Profile<span class="mono">04</span></a></li>
+      <li style="--i:4"><a href="#contact">Contact<span class="mono">05</span></a></li>
+    </ol>
+    <p class="mono menu-foot">STATUS: ONLINE · v0.2.0</p>
+  </div>
+</div>
 
 <main>
   <!-- HERO -->
   <section id="hero" class="hero">
-    <p class="reveal"><span class="pill"><b class="led"></b>PORTFOLIO SYSTEM</span> <span class="pill pill-sq">v0.1.0.0</span></p>
+    <p class="reveal"><span class="pill"><b class="led"></b>PORTFOLIO SYSTEM</span> <span class="pill pill-sq">v0.2.0</span></p>
     <h1 class="hero-name"><span class="line"><span>Joshner Vela</span></span></h1>
     <p class="hero-role reveal"><span class="pill pill-sq">IT STUDENT</span><br><em>DEVELOPER &amp; PROBLEM SOLVER</em></p>
     <p class="hero-intro reveal">I make <span class="typed" id="typed" aria-live="off"></span><span class="caret" aria-hidden="true"></span></p>
@@ -133,10 +149,19 @@
   <section id="contact" class="section">
     <header class="sec-head reveal"><p class="label">DEVELOPER CONSOLE</p><h2>Communications terminal</h2></header>
     <div class="glass card terminal reveal" data-tag="ACCESS">
-      <p class="mono term-line"><span class="prompt">&gt;</span> open channel --email <a href="mailto:joshnervela@gmail.com" data-tag="OPEN">joshnervela@gmail.com</a></p>
-      <p class="mono term-line"><span class="prompt">&gt;</span> open channel --linkedin <a href="#" data-tag="OPEN">[https://linkedin.com/in/joshnervela]</a></p>
-      <p class="mono term-line"><span class="prompt">&gt;</span> open channel --github <a href="#" data-tag="OPEN">https://github.com/papi-corvo</a></p>
-      <p class="mono term-line"><span class="prompt">&gt;</span> locate <span>Lucena, Philippines</span> · <span>[+63999999999]</span><span class="caret"></span></p>
+      <ul class="channels">
+        <li>
+          <a class="channel" href="mailto:joshnervela.tech@gmail.com" data-tag="OPEN"><span class="ch-label">EMAIL</span><span class="ch-val">joshnervela.tech@gmail.com</span><span class="ch-go">&#8599;</span></a>
+          <button class="copy" data-copy="joshnervela.tech@gmail.com" aria-label="Copy email address" data-tag="COPY">COPY</button>
+        </li>
+        <li>
+          <a class="channel" href="https://linkedin.com/in/joshnervela" target="_blank" rel="noopener noreferrer" data-tag="OPEN"><span class="ch-label">LINKEDIN</span><span class="ch-val">in/joshnervela</span><span class="ch-go">&#8599;</span></a>
+        </li>
+        <li>
+          <a class="channel" href="https://github.com/papi-corvo" target="_blank" rel="noopener noreferrer" data-tag="OPEN"><span class="ch-label">GITHUB</span><span class="ch-val">papi-corvo</span><span class="ch-go">&#8599;</span></a>
+        </li>
+      </ul>
+      <p class="mono term-status"><span class="prompt">&gt;</span> Location: Lucena, Philippines<span class="caret"></span></p>
     </div>
   </section>
 </main>
@@ -147,10 +172,11 @@
   <span>PROJECTS: LOADED</span>
   <span>NETWORK: STABLE</span>
   <span>DEV TIME: <time id="clock">--:--:--</time></span>
-  <span>LAST UPDATE: <time id="lastUpdate">[10/03/2026]</time></span>
-  <span>BUILD v0.1.0</span>
+  <span>LAST UPDATE: <time id="lastUpdate">[10/05/2026]</time></span>
+  <span>BUILD v0.2.0</span>
 </footer>
 
+<!-- NOTICE -->
 <aside class="notice glass" id="notice" role="status" aria-live="polite">
   <div class="notice-top"><span class="pill"><b class="led led-red"></b>NOTICE</span><span class="mono">STATUS: IN DEVELOPMENT</span></div>
   <h3>Work in progress</h3>
@@ -159,7 +185,7 @@
     <li><b class="led"></b><span><em>ORIGINAL</em>Some of the content is real and written by me.</span></li>
     <li><b class="led led-red"></b><span><em>PLACEHOLDER</em>The rest is temporary and will be replaced.</span></li>
   </ul>
-  <div class="notice-foot"><span class="mono">BUILD v0.1.0</span><button class="notice-x" id="noticeClose" aria-label="Dismiss notice" data-tag="CLOSE">GOT IT</button></div>
+  <div class="notice-foot"><span class="mono">BUILD v0.2.0</span><button class="notice-x" id="noticeClose" aria-label="Dismiss notice" data-tag="CLOSE">GOT IT</button></div>
 </aside>
 
 <script src="script.js"></script>

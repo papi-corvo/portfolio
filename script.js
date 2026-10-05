@@ -5,7 +5,7 @@ const SKILLS = [
 ];
 const BOOT_STEPS = ['Loading Interface...', 'Scanning Projects...', 'Building Skill Database...', 'Loading User Profile...', 'Preparing Dashboard...'];
 const TYPED_WORDS = ['video games', 'websites', 'applications'];
-const LAST_UPDATE = '2026-10-03';   // YYYY-MM-DD, change this every release
+const LAST_UPDATE = '2026-10-05';   // YYYY-MM-DD, change this every release
 const JOURNEY = [
   { year: '2022', cat: 'MILESTONE',   title: 'First Programming Experience', sub: 'First error', desc: 'I only knew basic HTML, CSS, and basic JavaScript at that time.', tags: ['HTML', 'CSS', 'JAVASCRIPT'], imgs: ['images/placeholder_2021.jpg'] },
   { year: '[YEAR_2]', cat: 'COMPETITION', title: '[EVENT_2_TITLE]', sub: '[EVENT_2_SUBTITLE]', desc: '[EVENT_2_DESCRIPTION]', tags: ['[TAG_1]', '[TAG_2]'], imgs: [''] },
@@ -247,7 +247,7 @@ const Notice = {
     const el = $('#notice');
     if (!el) return;
     const show = () => document.body.classList.contains('ready')
-      ? setTimeout(() => el.classList.add('show'), 4000)                // 4000 = seconds delay x 1000
+      ? setTimeout(() => el.classList.add('show'), 2000)                // 2000 = seconds delay x 1000
       : setTimeout(show, 100);
     show();
     const close = () => el.classList.remove('show');
@@ -256,5 +256,37 @@ const Notice = {
   }
 };
 
+/* ===== MOBILE MENU ===== */
+const Menu = {
+  init() {
+    const btn = $('#menuBtn'), panel = $('#menuPanel');
+    if (!btn || !panel) return;
+    const set = open => {
+      panel.classList.toggle('open', open);
+      document.body.classList.toggle('menu-open', open);
+      btn.setAttribute('aria-expanded', open);
+      panel.setAttribute('aria-hidden', !open);
+      if (open) $('#menuClose').focus();
+    };
+    btn.addEventListener('click', () => set(true));
+    $('#menuClose').addEventListener('click', () => set(false));
+    panel.addEventListener('click', e => { if (e.target === panel || e.target.closest('a')) set(false); });   // tapping a link or the dim area closes it
+    addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
+    matchMedia('(min-width:901px)').addEventListener('change', e => { if (e.matches) set(false); });   // widening the window closes it
+  }
+};
+
+/* ===== COPY BUTTONS FOR CONTACT CHANNELS ===== */
+const Copy = {
+  init() {
+    $$('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'COPIED'; }
+      catch { b.textContent = 'FAILED'; }
+      b.classList.add('done');
+      setTimeout(() => { b.textContent = 'COPY'; b.classList.remove('done'); }, 1600);
+    }));
+  }
+};
+
 /* ===== START ===== */
-Skills.init(); Timeline.init(); System.init(); Scanner.init(); Cursor.init(); Particles.init(); Typer.init(); Notice.init(); Boot.run();
+Skills.init(); Timeline.init(); System.init(); Scanner.init(); Cursor.init(); Particles.init(); Typer.init(); Notice.init(); Menu.init(); Copy.init(); Boot.run();
