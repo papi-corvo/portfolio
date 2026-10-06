@@ -9,6 +9,8 @@ All notable changes to this portfolio are listed here, newest version first.
 - Contact channels redesigned as clickable rows for email, LinkedIn and GitHub, with short handles and arrows
 - Copy button for the email address, with a "copied" confirmation
 - Location moved to a quiet status line under the contact rows
+- Official logo: browser favicon, top bar, boot screen and footer
+- Link preview image and metadata for sharing
 
 ### Changed
 - Development notice now appears 2 seconds after the page loads, instead of 4

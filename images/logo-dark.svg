@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #f4f2ee;
+      }
+
+      .cls-3 {
+        fill: #0f0f0f;
+      }
+
+      .cls-4 {
+        filter: url(#outer-glow-2);
+      }
+
+      .cls-2 {
+        stroke: #f4f2ee;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-5 {
+        filter: url(#outer-glow-1);
+      }
+    </style>
+    <filter id="outer-glow-1" x="209" y="157" width="582" height="686" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#f4f2ee" flood-opacity=".5"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="outer-glow-2" x="419.25" y="253.75" width="153" height="267" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur result="blur-2" stdDeviation="5"/>
+      <feFlood flood-color="#f4f2ee" flood-opacity=".5"/>
+      <feComposite in2="blur-2" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect class="cls-3" width="1000" height="1000"/>
+  <g id="Layer_1" data-name="Layer 1">
+    <g class="cls-5">
+      <polygon class="cls-2" points="439.51 827.21 225.4 249.34 342.57 249.34 493.38 711.57 660.24 172.79 774.6 172.79 688.53 249.66 747.66 286.79 660.93 327.2 708.24 403.09 630.38 444.48 670.13 521.03 591.11 559.47 625.07 612.55 552.08 827.19 439.51 827.21"/>
+    </g>
+    <g class="cls-4">
+      <polygon class="cls-1" points="546.33 371.33 556.71 290.05 495.48 269.29 434.26 290.05 444.29 371.33 495.48 504.85 546.33 371.33"/>
+      <polygon points="455.64 329.07 455.64 313.3 477.67 321.19 455.64 329.07"/>
+      <polygon points="536.07 329.07 536.07 313.3 514.04 321.19 536.07 329.07"/>
+    </g>
+  </g>
+</svg>

@@ -300,3 +300,13 @@ body.menu-open{overflow:hidden}
 .copy.done{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.12)}
 .term-status{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--dim);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
 @media (max-width:520px){.channel{grid-template-columns:1fr auto;gap:.2rem .8rem}.ch-label{grid-column:1/-1}.copy{padding:0 .8rem}}
+
+/* ===== LOGO ===== */
+.brand{display:inline-flex;align-items:center;gap:.7rem}
+.brand-logo{height:22px;width:auto;filter:drop-shadow(0 0 8px rgba(244,242,238,.35));transition:filter .4s var(--ease)}
+.brand:hover .brand-logo{filter:drop-shadow(0 0 12px rgba(244,242,238,.7))}
+.boot-logo{display:block;height:84px;width:auto;margin-bottom:1.8rem;animation:logoIn 1s .2s var(--ease) both,logoGlow 3.2s ease-in-out 1.2s infinite}
+@keyframes logoIn{from{opacity:0;transform:translateY(10px) scale(.96)}}
+@keyframes logoGlow{0%,100%{filter:drop-shadow(0 0 8px rgba(244,242,238,.25))}50%{filter:drop-shadow(0 0 20px rgba(244,242,238,.6))}}
+.foot-logo{display:block;height:18px;width:auto;opacity:.45;transition:opacity .4s}
+.foot-logo:hover{opacity:.9}
